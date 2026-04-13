@@ -3,6 +3,8 @@ import React from 'react'
 import { Tabs } from 'expo-router'
 import { images } from '@/constants/images'
 import { icons } from '@/constants/icons'
+import { Provider } from 'react-redux'
+import { store } from '@/store/store'
 
 const TabIcon = ({focused,icon,title}:any) => {
     if(focused){
@@ -18,7 +20,7 @@ const TabIcon = ({focused,icon,title}:any) => {
    }
    return(
     <View className='size-full justify-center items-center mt-4 rounded-full'>
-        <Image  source={icon} tintColor='#a8acb7' className='size-5'/>
+        <Image source={icon} tintColor='#a8acb7' className='size-5'/>
     </View>
    )
 
@@ -26,7 +28,8 @@ const TabIcon = ({focused,icon,title}:any) => {
 
 const _layout = () => {
     return (
-        <Tabs
+        <Provider store={store}>
+<Tabs
             screenOptions={{
                 tabBarShowLabel: false,
                 tabBarItemStyle:{
@@ -40,9 +43,9 @@ const _layout = () => {
                     borderRadius: 50,
                     marginHorizontal: 18,
                     marginBottom: 36,
-                    paddingTop:7,
-                    paddingLeft:5,
-                    height: 45,
+                    // paddingTop:7,
+                    // paddingLeft:5,
+                    height: 56,
                     position: 'absolute',
                     overflow:'hidden',
                     borderWidth: 1,
@@ -107,6 +110,8 @@ const _layout = () => {
                 }}
             />
         </Tabs>
+        </Provider>
+        
     )
 }
 
