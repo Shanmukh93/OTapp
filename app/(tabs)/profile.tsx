@@ -1,4 +1,4 @@
-mport { icons } from "@/constants/icons";
+import { icons } from "@/constants/icons";
 import { View, Text, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
