@@ -1,5 +1,5 @@
-import MovieCard from "@/components/MovieCard";
-import SearchBar from "@/components/SearchBar";
+import MovieCard from "@/Components/MovieCard";
+import SearchBar from "@/Components/SearchBar";
 import { icons } from '@/constants/icons';
 import { images } from '@/constants/images';
 import { fetchMovies } from '@/services/api';
