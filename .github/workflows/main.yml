@@ -38,3 +38,5 @@ jobs:
 
       - name: Build Android
         run: eas build --platform android --non-interactive --no-wait
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
