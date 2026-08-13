@@ -15,25 +15,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v5
 
-      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: npm
 
-      # 3. Install dependencies
+      - name: Setup Expo and EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
       - name: Install dependencies
         run: npm ci
 
-      # 4. Check Expo project
       - name: Run Expo Doctor
         run: npx expo-doctor
 
-      # 5. Export Android project
-      - name: Export Expo app
-        run: npx expo export --platform android
+      - name: Build Android
+        run: eas build --platform android --non-interactive --no-wait
